@@ -5,92 +5,99 @@ window.PORTFOLIO_CONTENT = {
   hero: {
     eyebrow: "Portfolio Alternance IT",
     name: "Alexandre Canovas",
-    title: "Alternance Support Informatique / IT",
+    title: "Alternant IT | Support Utilisateur, Systèmes & Réseaux",
     profileImage: "assets/profile/IMG_0948.JPG",
     profileAlt: "Photo de profil d'Alexandre Canovas",
     pitch:
-      "Admis à l’école d’ingénieurs CESI pour la rentrée de septembre 2026 en informatique, je prépare la formation Gestionnaire en maintenance et support informatique (Bac+2), orientée support utilisateur, administration systèmes et réseaux. Issu d’un parcours en sécurité terrain, je m’oriente vers les métiers du support IT et de la maintenance informatique. Je recherche une alternance afin de développer mes compétences techniques et contribuer efficacement en environnement IT (helpdesk / systèmes et réseaux)."
+      "Admis au CESI (rentrée 2026), je recherche une alternance pour intervenir sur le support utilisateurs, la maintenance des postes et les opérations systèmes/réseaux de premier niveau. Disponible dès septembre 2026 (Toulouse et périphérie)."
   },
 
   goal:
-    "Je recherche une alternance en support informatique / helpdesk afin de développer mes compétences techniques en environnement professionnel, renforcer mon expérience terrain et évoluer progressivement vers un poste de technicien systèmes et réseaux junior, au sein d’une équipe IT.",
+    "Rejoindre une équipe IT en alternance pour contribuer concrètement au support quotidien, progresser sur les environnements systèmes/réseaux et devenir un technicien fiable et opérationnel.",
   about: {
     text:
-      "Ancien gendarme puis agent de sécurité, j'ai développé rigueur, gestion du stress et sens des responsabilités. En reconversion vers l'informatique, je me spécialise en support, dépannage systèmes et bases réseau.",
-    qualities: ["Rigueur", "Discipline", "Logique", "Autonomie", "Sens du service"]
+      "Issu de la sécurité privée, j'ai développé des réflexes utiles en IT : gestion d'incidents, communication claire, respect des procédures et sens des priorités. En reconversion informatique, je consolide mes bases en support utilisateur, maintenance Windows, Linux et diagnostic réseau.",
+    qualities: ["Gestion d'incidents", "Rigueur opérationnelle", "Analyse", "Autonomie", "Sens du service"]
   },
   whyMe:
-    "Avec un parcours hybride sécurité et informatique, j'apporte une discipline opérationnelle, une forte rigueur et une vraie maîtrise du travail en environnement structuré. Habitué à gérer la pression et les priorités, je veux devenir un technicien systèmes et réseaux fiable, réactif et orienté service utilisateur.",
+    "Je peux apporter un cadre de travail sérieux, une bonne gestion de la pression et une vraie posture de service utilisateur. Aujourd'hui en montée en compétences, je m'investis pour être rapidement efficace sur des missions de support, de maintenance et de diagnostic en environnement professionnel.",
   skills: [
     {
-      title: "Support & Systèmes",
+      title: "Support & systèmes (bases en apprentissage)",
       items: [
-        "Support utilisateur niveau 1",
-        "Windows : installation, diagnostic, maintenance",
-        "Navigation Linux / ligne de commande (bases)",
-        "Résolution d'incidents matériels et logiciels"
+        "Compréhension des notions de support utilisateur niveau 1",
+        "Apprentissage de l'installation et configuration de Windows",
+        "Découverte de Linux (navigation en ligne de commande, commandes de base)",
+        "Initiation au diagnostic de problèmes matériels et logiciels"
       ]
     },
     {
-      title: "Réseaux (bases)",
+      title: "Réseaux (notions fondamentales)",
       items: [
-        "Adressage IP et sous-réseaux",
-        "DNS / DHCP",
-        "Notions TCP/IP, routage et switching",
-        "Diagnostic réseau de premier niveau"
+        "Compréhension des bases de l'adressage IP et sous-réseaux",
+        "Notions de fonctionnement TCP/IP",
+        "Découverte des services DNS et DHCP",
+        "Premières notions de diagnostic réseau simple"
       ]
     },
     {
-      title: "Développement Web",
+      title: "Développement & logique informatique",
       items: [
-        "HTML / CSS / JavaScript",
-        "Bases Svelte et Laravel",
-        "Création d'interfaces responsives",
-        "Structure de mini-applications web"
+        "Bases en HTML / CSS / JavaScript",
+        "Découverte de Node.js et de la logique événementielle",
+        "Notions de PHP et MySQL",
+        "Création de pages web simples et responsives"
       ]
     },
     {
-      title: "Outils",
+      title: "Outils & environnement",
       items: [
-        "Git & GitHub",
-        "PowerShell (commandes essentielles)",
-        "Organisation et documentation technique"
+        "Utilisation de Git et GitHub (bases)",
+        "Premières commandes PowerShell",
+        "Apprentissage de la documentation technique et de la structuration de projets"
       ]
     }
   ],
   projects: [
     {
       title: "Atelier maintenance PC",
-      description:
-        "Projet personnel de montage/démontage et diagnostic de pannes pour renforcer les réflexes support matériel.",
+      description: "Projet pratique de maintenance poste client orienté diagnostic et dépannage matériel.",
+      problem: "Renforcer les réflexes techniques sur le diagnostic de pannes matérielles en environnement poste utilisateur.",
+      solution: "Réalisation d'ateliers de montage/démontage, vérifications composants et procédures de diagnostic structurées.",
+      skillsDeveloped: "Diagnostic matériel, méthodologie de dépannage Windows et documentation d'intervention.",
       technologies: ["Diagnostic matériel", "Windows", "Documentation"],
       image: "assets/projects/IMG_4436.jpeg"
     },
     {
       title: "Bot Discord - Automatisation",
-      description:
-        "Développement d'un bot pour automatiser des commandes, organiser des interactions utilisateurs et renforcer la logique événementielle.",
+      description: "Développement d'un bot pour automatiser des commandes et organiser les interactions utilisateurs.",
+      problem: "Les interactions manuelles répétitives sur le serveur ralentissaient la gestion et créaient des incohérences.",
+      solution: "Création d'un bot d'automatisation pour centraliser des commandes, fluidifier les interactions et structurer les actions événementielles.",
+      skillsDeveloped: "Automatisation, logique événementielle, maintenance applicative et amélioration de la fiabilité opérationnelle.",
       technologies: ["JavaScript", "Node.js", "Discord API"],
       image: "assets/projects/Capture d’écran 2026-02-19 164153.png",
       github: "https://github.com/AlexandreCANOVAS/BOT-WOLF-V2-RDR"
     },
     {
       title: "Application web FiveM",
-      description:
-        "Développement d’un projet lié à l’environnement FiveM, incluant la création et la gestion de scripts ou fonctionnalités serveur afin d’améliorer l’expérience utilisateur et l’interaction en jeu.",
-      technologies: ["HTML", "CSS", "TypeScripts", "MongoDB", "MySQL"],
+      description: "Développement d'outils web et scripts serveur pour améliorer l'expérience utilisateur en environnement FiveM.",
+      problem: "Besoins de fonctionnalités personnalisées pour fluidifier l'interaction joueur et l'administration d'un serveur FiveM.",
+      solution: "Création et intégration de scripts/fonctionnalités serveur avec interface web dédiée et gestion des données.",
+      skillsDeveloped: "Analyse fonctionnelle, développement full-stack, structuration base de données et itérations de maintenance.",
+      technologies: ["HTML", "CSS", "TypeScript", "MongoDB", "MySQL"],
       image: "assets/projects/Capture d’écran 2026-02-23 025057.png",
       github: "https://github.com/AlexandreCANOVAS/SITE-BOT-RP"
     },
     {
       title: "Site web gestion de planning",
-      description:
-        "Gestion et création de planning, calcul automatique des heures, fiches employés, etc.",
-      technologies: ["JavaScript", "CSS", "Blade", "PHP","MySQL"],
+      description: "Application web pour organiser les plannings, calculer les heures et centraliser les fiches employés.",
+      problem: "Gestion manuelle des plannings avec risque d'erreurs sur les heures et manque de visibilité globale.",
+      solution: "Conception d'une interface de gestion permettant la création de plannings et le calcul automatique des heures.",
+      skillsDeveloped: "Conception d'interface métier, logique de calcul, gestion des données RH et maintenance applicative.",
+      technologies: ["JavaScript", "CSS", "Blade", "PHP", "MySQL"],
       image: "assets/projects/IMG_2223 (1).jpg",
       github: "https://github.com/AlexandreCANOVAS/planning-app"
-    },
-    
+    }
   ],
   certifications: [
 

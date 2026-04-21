@@ -340,7 +340,28 @@ function createProjectCard(project) {
     ? `<div class="project-image-wrap"><img class="project-image" src="${project.image}" alt="${project.title || "Projet"}" loading="lazy" /><button class="project-image-bubble" type="button" aria-label="Agrandir l'image du projet">Agrandir</button></div>`
     : "";
 
-  const techList = (project.technologies || []).map((item) => `<li>${item}</li>`).join("");
+  const details = [
+    { label: "Problème", icon: "🎯", value: project.problem },
+    { label: "Solution", icon: "⚙️", value: project.solution },
+    { label: "Compétences développées", icon: "🧠", value: project.skillsDeveloped }
+  ].filter((item) => item.value);
+
+  const detailsBlock = details.length
+    ? `
+      <div class="project-details">
+        ${details.map((item) => `
+          <div class="project-detail-item">
+            <p class="project-detail-label">${item.icon} ${item.label}</p>
+            <p class="project-detail-text">${item.value}</p>
+          </div>
+        `).join("")}
+      </div>
+    `
+    : `<p>${project.description || ""}</p>`;
+
+  const techList = (project.technologies || []).map((item) => `<span class="project-tech-tag">${item}</span>`).join("");
+  const techBlock = techList ? `<div class="project-tech-list">${techList}</div>` : "";
+
   const githubLink = project.github
     ? `<a href="${project.github}" target="_blank" rel="noreferrer">Voir sur GitHub</a>`
     : "";
@@ -348,8 +369,9 @@ function createProjectCard(project) {
   article.innerHTML = `
     ${imageBlock}
     <h4>${project.title || ""}</h4>
-    <p>${project.description || ""}</p>
-    <ul>${techList}</ul>
+    ${project.description ? `<p class="project-summary">${project.description}</p>` : ""}
+    ${detailsBlock}
+    ${techBlock}
     ${githubLink}
   `;
 

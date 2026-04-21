@@ -15,6 +15,12 @@ function injectHero() {
   injectText("heroName", content.hero.name);
   injectText("heroTitle", content.hero.title);
   injectText("heroPitch", content.hero.pitch);
+
+  const profileImage = document.getElementById("heroProfileImage");
+  if (profileImage) {
+    profileImage.src = content.hero.profileImage || "assets/profile/profile-placeholder.svg";
+    profileImage.alt = content.hero.profileAlt || `Photo de profil de ${content.hero.name || "Alexandre"}`;
+  }
 }
 
 function injectAbout() {

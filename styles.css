@@ -169,6 +169,23 @@ body.dark .main-nav a:focus-visible {
   padding: 1.15rem;
 }
 
+.hero-profile-wrap {
+  width: 124px;
+  height: 124px;
+  margin: 0 auto 0.9rem;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+.hero-profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .hero-panel-label {
   margin: 0;
   font-size: 0.74rem;
@@ -685,6 +702,11 @@ body.dark .project-image-lightbox-close {
 
   .hero {
     padding-top: 2.5rem;
+  }
+
+  .hero-profile-wrap {
+    width: 108px;
+    height: 108px;
   }
 
   .btn {

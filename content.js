@@ -6,6 +6,8 @@ window.PORTFOLIO_CONTENT = {
     eyebrow: "Portfolio Alternance IT",
     name: "Alexandre Canovas",
     title: "Alternance Support Informatique / IT",
+    profileImage: "assets/profile/IMG_0948.JPG",
+    profileAlt: "Photo de profil d'Alexandre Canovas",
     pitch:
       "Admis à l’école d’ingénieurs CESI pour la rentrée de septembre 2026 en informatique, je prépare la formation Gestionnaire en maintenance et support informatique (Bac+2), orientée support utilisateur, administration systèmes et réseaux. Issu d’un parcours en sécurité terrain, je m’oriente vers les métiers du support IT et de la maintenance informatique. Je recherche une alternance afin de développer mes compétences techniques et contribuer efficacement en environnement IT (helpdesk / systèmes et réseaux)."
   },

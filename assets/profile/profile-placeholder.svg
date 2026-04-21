@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Photo de profil placeholder</title>
+  <desc id="desc">Illustration circulaire avec les initiales AC</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a6ad6" />
+      <stop offset="100%" stop-color="#0aa08c" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#bg)" />
+  <circle cx="128" cy="98" r="46" fill="rgba(255,255,255,0.26)" />
+  <path d="M48 226c8-41 40-63 80-63s72 22 80 63" fill="rgba(255,255,255,0.24)" />
+  <text x="128" y="236" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="rgba(255,255,255,0.9)">AC</text>
+</svg>

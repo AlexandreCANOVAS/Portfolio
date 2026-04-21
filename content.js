@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT = {
   hero: {
     eyebrow: "Alternance IT - CESI 2026",
     name: "Alexandre Canovas",
-    title: "Alternant IT | Support Utilisateur, Systèmes & Réseaux (Junior)",
+    title: "Futur technicien systèmes & réseaux en alternance - orienté support IT et résolution d'incidents.",
     profileImage: "assets/profile/IMG_0948.JPG",
     profileAlt: "Photo de profil d'Alexandre Canovas",
     pitch:
@@ -13,7 +13,7 @@ window.PORTFOLIO_CONTENT = {
   },
 
   goal:
-    "Objectif: intégrer une équipe IT en alternance pour devenir progressivement autonome sur le support, la maintenance et le diagnostic technique. Mon objectif est de devenir rapidement opérationnel en support IT et de contribuer efficacement aux équipes techniques en entreprise.",
+    "Mon objectif est d'intégrer une entreprise en alternance afin de devenir rapidement opérationnel en support IT et de contribuer efficacement aux équipes techniques.",
   about: {
     text:
       "Mon parcours en sécurité privée m'a appris à gérer les incidents, garder mon sang-froid et appliquer des procédures avec rigueur. Aujourd'hui, j'applique ces réflexes dans mes projets IT: diagnostic, résolution de problèmes, documentation et amélioration continue, avec une orientation claire vers le support utilisateur en entreprise.",
@@ -70,7 +70,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       title: "Diagnostic réseau PowerShell",
-      description: "Script PowerShell de diagnostic réseau pour automatiser les vérifications de connectivité. Impact: gain de temps sur les contrôles de premier niveau et meilleure fiabilité du diagnostic. Ce projet m'a permis d'appliquer l'automatisation à un cas concret de support IT.",
+      description: "Script PowerShell de diagnostic réseau pour automatiser les vérifications de connectivité. Impact: gain de temps sur les contrôles de premier niveau et meilleure fiabilité du diagnostic. Ce type d'outil permet de gagner du temps lors du diagnostic de pannes réseau et d'automatiser les premières vérifications en support utilisateur. Ce projet m'a permis d'appliquer l'automatisation à un cas concret de support IT.",
       problem: "Les vérifications réseau de base réalisées manuellement sont répétitives et peuvent entraîner des oublis lors du diagnostic.",
       solution: "Création d'un script PowerShell qui centralise des tests de connectivité et fournit un résultat clair pour orienter le dépannage.",
       skillsDeveloped: "PowerShell appliqué, logique de diagnostic réseau, automatisation de tâches support et structuration de sortie technique.",

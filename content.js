@@ -7,7 +7,7 @@ window.PORTFOLIO_CONTENT = {
     name: "Alexandre Canovas",
     title: "Alternance Support Informatique / IT",
     pitch:
-      "Étudiant en informatique (CESI) avec un parcours en sécurité terrain, orienté support utilisateur, maintenance systèmes et assistance helpdesk. Je recherche une alternance pour contribuer rapidement en environnement IT."
+      "Admis à l’école d’ingénieurs CESI pour la rentrée de septembre 2026 en informatique, je prépare la formation Gestionnaire en maintenance et support informatique (Bac+2), orientée support utilisateur, administration systèmes et réseaux. Issu d’un parcours en sécurité terrain, je m’oriente vers les métiers du support IT et de la maintenance informatique. Je recherche une alternance afin de développer mes compétences techniques et contribuer efficacement en environnement IT (helpdesk / systèmes et réseaux)."
   },
 
   goal:
@@ -85,7 +85,7 @@ window.PORTFOLIO_CONTENT = {
       description:
         "Gestion et création de planning, calcul automatique des heures, fiches employés, etc.",
       technologies: ["JavaScript", "CSS", "Blade", "PHP","MySQL"],
-      image: "assets/projects/project-placeholder.svg",
+      image: "assets/projects/IMG_2223 (1).jpg",
       github: "https://github.com/AlexandreCANOVAS/planning-app"
     },
     

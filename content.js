@@ -13,22 +13,22 @@ window.PORTFOLIO_CONTENT = {
   },
 
   goal:
-    "Objectif: intégrer une équipe IT en alternance pour devenir progressivement autonome sur le support, la maintenance et le diagnostic technique. Je cherche un cadre où je peux apprendre vite, appliquer des méthodes claires et être utile au quotidien.",
+    "Objectif: intégrer une équipe IT en alternance pour devenir progressivement autonome sur le support, la maintenance et le diagnostic technique. Mon objectif est de devenir rapidement opérationnel en support IT et de contribuer efficacement aux équipes techniques en entreprise.",
   about: {
     text:
-      "Mon parcours en sécurité privée m'a appris à gérer les incidents, garder mon sang-froid et appliquer des procédures avec rigueur. En reconversion vers l'IT, je construis des bases solides en support utilisateur, maintenance Windows, Linux et notions réseau pour évoluer vers un rôle de technicien systèmes et réseaux.",
+      "Mon parcours en sécurité privée m'a appris à gérer les incidents, garder mon sang-froid et appliquer des procédures avec rigueur. Aujourd'hui, j'applique ces réflexes dans mes projets IT: diagnostic, résolution de problèmes, documentation et amélioration continue, avec une orientation claire vers le support utilisateur en entreprise.",
     qualities: ["Gestion d'incidents", "Rigueur", "Sens du service", "Communication claire", "Fiabilité"]
   },
   whyMe:
-    "Ce que je peux apporter dès maintenant: une posture professionnelle, une bonne gestion des priorités, une communication utilisateur claire et un vrai sérieux d'exécution. Je suis junior, mais impliqué, structuré et orienté résolution de problèmes concrets.",
+    "Ce que je peux apporter dès maintenant: une posture professionnelle, une bonne gestion des priorités, une communication utilisateur claire et un vrai sérieux d'exécution. Je suis junior, mais déjà dans une logique d'application concrète et de contribution utile à une équipe technique.",
   skills: [
     {
       title: "Support & systèmes (bases solides en progression)",
       items: [
-        "Support utilisateur niveau 1 (notions et pratique personnelle)",
-        "Installation et configuration Windows (apprentissage appliqué)",
+        "Support utilisateur niveau 1 (mise en pratique sur projets personnels)",
+        "Installation et configuration Windows (cas concrets de maintenance)",
         "Linux: navigation en ligne de commande (bases)",
-        "Diagnostic de premiers incidents matériels et logiciels"
+        "Diagnostic de premiers incidents matériels et logiciels avec méthode"
       ]
     },
     {
@@ -44,7 +44,7 @@ window.PORTFOLIO_CONTENT = {
       title: "Développement & logique informatique",
       items: [
         "HTML / CSS / JavaScript (bases pratiques)",
-        "Node.js et logique événementielle (découverte appliquée)",
+        "Node.js et logique événementielle (mise en application sur bot)",
         "Notions de PHP et MySQL",
         "Création de pages web responsives"
       ]
@@ -61,7 +61,7 @@ window.PORTFOLIO_CONTENT = {
   projects: [
     {
       title: "Atelier maintenance PC",
-      description: "Projet pratique de maintenance poste client. Impact: amélioration de ma rapidité de diagnostic et de ma méthode d'intervention sur incidents matériels courants.",
+      description: "Projet pratique de maintenance poste client. Impact: amélioration de ma rapidité de diagnostic et de ma méthode d'intervention sur incidents matériels courants. Ce projet m'a permis de structurer une démarche de diagnostic directement utile sur des missions support IT.",
       problem: "Renforcer les réflexes techniques sur le diagnostic de pannes matérielles en environnement poste utilisateur.",
       solution: "Réalisation d'ateliers de montage/démontage, vérifications composants et procédures de diagnostic structurées.",
       skillsDeveloped: "Diagnostic matériel, méthodologie de dépannage Windows et documentation d'intervention.",
@@ -69,8 +69,18 @@ window.PORTFOLIO_CONTENT = {
       image: "assets/projects/IMG_4436.jpeg"
     },
     {
+      title: "Diagnostic réseau PowerShell",
+      description: "Script PowerShell de diagnostic réseau pour automatiser les vérifications de connectivité. Impact: gain de temps sur les contrôles de premier niveau et meilleure fiabilité du diagnostic. Ce projet m'a permis d'appliquer l'automatisation à un cas concret de support IT.",
+      problem: "Les vérifications réseau de base réalisées manuellement sont répétitives et peuvent entraîner des oublis lors du diagnostic.",
+      solution: "Création d'un script PowerShell qui centralise des tests de connectivité et fournit un résultat clair pour orienter le dépannage.",
+      skillsDeveloped: "PowerShell appliqué, logique de diagnostic réseau, automatisation de tâches support et structuration de sortie technique.",
+      technologies: ["PowerShell", "Réseaux", "Diagnostic"],
+      image: "assets/projects/exemple-sortie.png",
+      github: "https://github.com/AlexandreCANOVAS/diagnostic-reseau-powershell"
+    },
+    {
       title: "Bot Discord - Automatisation",
-      description: "Automatisation de commandes pour réduire les actions manuelles. Impact: interactions plus fluides et gestion plus stable côté utilisateurs.",
+      description: "Automatisation de commandes pour réduire les actions manuelles. Impact: interactions plus fluides et gestion plus stable côté utilisateurs. Ce projet m'a permis de comprendre la gestion des événements et l'automatisation, compétences utiles dans des environnements IT avec tâches répétitives.",
       problem: "Les interactions manuelles répétitives sur le serveur ralentissaient la gestion et créaient des incohérences.",
       solution: "Création d'un bot d'automatisation pour centraliser des commandes, fluidifier les interactions et structurer les actions événementielles.",
       skillsDeveloped: "JavaScript backend, logique événementielle, maintenance et corrections progressives.",
@@ -80,7 +90,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       title: "Application web FiveM",
-      description: "Développement de fonctionnalités web liées à un environnement serveur. Impact: meilleure organisation des interactions et des opérations côté communauté.",
+      description: "Développement de fonctionnalités web liées à un environnement serveur. Impact: meilleure organisation des interactions et des opérations côté communauté. Ce projet m'a permis de relier besoins utilisateurs et développement technique, avec une approche orientée service.",
       problem: "Besoins de fonctionnalités personnalisées pour fluidifier l'interaction joueur et l'administration d'un serveur FiveM.",
       solution: "Création et intégration de scripts/fonctionnalités serveur avec interface web dédiée et gestion des données.",
       skillsDeveloped: "Développement web full-stack junior, logique métier et structure de base de données.",
@@ -90,7 +100,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       title: "Site web gestion de planning",
-      description: "Application de planification avec calcul des heures. Impact: réduction des erreurs manuelles et meilleure visibilité pour l'organisation.",
+      description: "Application de planification avec calcul des heures. Impact: réduction des erreurs manuelles et meilleure visibilité pour l'organisation. Ce projet m'a permis de comprendre l'importance d'outils simples et fiables pour les équipes opérationnelles.",
       problem: "Gestion manuelle des plannings avec risque d'erreurs sur les heures et manque de visibilité globale.",
       solution: "Conception d'une interface de gestion permettant la création de plannings et le calcul automatique des heures.",
       skillsDeveloped: "Conception d'interface métier, logique de calcul et structuration des données.",

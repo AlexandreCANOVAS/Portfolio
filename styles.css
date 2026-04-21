@@ -326,8 +326,9 @@ h3 {
 }
 
 .projects-grid {
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
+  align-items: stretch;
 }
 
 .qualities {
@@ -915,6 +916,10 @@ body.dark .project-image-lightbox-close {
   .hero-layout {
     grid-template-columns: 1fr;
   }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -947,6 +952,10 @@ body.dark .project-image-lightbox-close {
 
   .btn {
     width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-image-lightbox {

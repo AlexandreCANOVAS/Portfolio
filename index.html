@@ -17,6 +17,21 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="bootScreen" class="boot-screen" aria-hidden="true">
+      <div class="boot-card">
+        <p class="boot-title">INITIALISATION PROFIL IT</p>
+        <pre id="bootLog" class="boot-log"></pre>
+      </div>
+    </div>
+
+    <canvas id="constellationCanvas" class="constellation-canvas" aria-hidden="true"></canvas>
+
+    <div class="bg-aurora" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+    <div class="scanline" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header container">
@@ -27,93 +42,78 @@
         <a href="#projects">Projets</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle" aria-label="Activer le mode sombre">
-        <span>🌙</span>
-      </button>
+      <div class="header-actions">
+        <button id="editToggle" class="edit-toggle">Editer</button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Activer le mode sombre">
+          <span>🌙</span>
+        </button>
+      </div>
     </header>
 
-    <main>
-      <section id="hero" class="hero container reveal">
-        <p class="eyebrow">Portfolio Alternance IT</p>
-        <h1>Alexandre Canovas</h1>
-        <h2>Alternance Support Informatique / IT</h2>
-        <p class="hero-text">
-          Étudiant en informatique (CESI) avec un parcours en sécurité terrain,
-          orienté support utilisateur, maintenance systèmes et assistance helpdesk.
-          Je recherche une alternance pour contribuer rapidement en environnement IT.
+    <aside id="editorPanel" class="editor-panel" aria-hidden="true">
+      <div class="editor-card">
+        <div class="editor-head">
+          <h3>Edition du contenu</h3>
+          <button id="editorClose" class="editor-close" aria-label="Fermer l'editeur">✕</button>
+        </div>
+        <p class="editor-help">
+          Modifie le JSON puis clique sur <strong>Appliquer</strong>. Le contenu est sauvegarde dans ton navigateur.
         </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        <textarea id="contentEditor" class="editor-textarea" spellcheck="false"></textarea>
+        <div class="editor-actions">
+          <button id="editorReset" class="btn btn-ghost" type="button">Revenir au contenu par defaut</button>
+          <button id="editorApply" class="btn btn-primary" type="button">Appliquer</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="site-main">
+      <section id="hero" class="hero container reveal" data-section="hero">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow" id="heroEyebrow"></p>
+            <h1 id="heroName"></h1>
+            <h2 id="heroTitle"></h2>
+            <p class="hero-text" id="heroPitch"></p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+              <a href="#contact" class="btn btn-ghost">Me contacter</a>
+            </div>
+          </div>
+          <aside class="hero-panel magnetic-card">
+            <p class="hero-panel-label">Status</p>
+            <p class="hero-panel-title">Disponible alternance IT</p>
+            <p class="hero-panel-text">Support informatique / maintenance / helpdesk</p>
+            <div class="hero-tags">
+              <span>Windows</span>
+              <span>Reseaux</span>
+              <span>Support N1</span>
+              <span>Rigueur terrain</span>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <section id="about" class="section container reveal">
+      <section id="about" class="section container reveal" data-section="about">
         <div class="section-title-wrap">
           <p class="eyebrow">Profil</p>
           <h3>À propos</h3>
         </div>
-        <div class="card">
-          <p>
-            Ancien gendarme puis agent de sécurité, j'ai développé rigueur,
-            gestion du stress et sens des responsabilités. En reconversion vers
-            l'informatique, je me spécialise en support, dépannage systèmes et bases réseau.
-          </p>
-          <ul class="qualities">
-            <li>Rigueur</li>
-            <li>Discipline</li>
-            <li>Logique</li>
-            <li>Autonomie</li>
-            <li>Sens du service</li>
-          </ul>
+        <div class="card magnetic-card" id="aboutCard">
+          <p id="aboutText"></p>
+          <ul class="qualities" id="qualitiesList"></ul>
         </div>
       </section>
 
-      <section id="skills" class="section container reveal">
+      <section id="skills" class="section container reveal" data-section="skills">
         <div class="section-title-wrap">
           <p class="eyebrow">Savoir-faire</p>
           <h3>Compétences techniques</h3>
         </div>
-        <div class="skills-grid">
-          <article class="card skill-card">
-            <h4>Support & Systèmes</h4>
-            <ul>
-              <li>Support utilisateur niveau 1</li>
-              <li>Windows : installation, diagnostic, maintenance</li>
-              <li>Navigation Linux / ligne de commande (bases)</li>
-              <li>Résolution d'incidents matériels et logiciels</li>
-            </ul>
-          </article>
-          <article class="card skill-card">
-            <h4>Réseaux (bases)</h4>
-            <ul>
-              <li>Adressage IP et sous-réseaux</li>
-              <li>DNS / DHCP</li>
-              <li>Notions TCP/IP, routage et switching</li>
-              <li>Diagnostic réseau de premier niveau</li>
-            </ul>
-          </article>
-          <article class="card skill-card">
-            <h4>Développement Web</h4>
-            <ul>
-              <li>HTML / CSS / JavaScript</li>
-              <li>Bases Svelte et Laravel</li>
-              <li>Création d'interfaces responsives</li>
-              <li>Structure de mini-applications web</li>
-            </ul>
-          </article>
-          <article class="card skill-card">
-            <h4>Outils</h4>
-            <ul>
-              <li>Git & GitHub</li>
-              <li>PowerShell (commandes essentielles)</li>
-              <li>Organisation et documentation technique</li>
-            </ul>
-          </article>
-        </div>
+        <div class="skills-grid" id="skillList"></div>
       </section>
 
-      <section id="projects" class="section container reveal">
+      <section id="projects" class="section container reveal" data-section="projects">
         <div class="section-title-wrap">
           <p class="eyebrow">Réalisations</p>
           <h3>Projets</h3>
@@ -121,58 +121,38 @@
         <div id="projectList" class="projects-grid"></div>
       </section>
 
-      <section id="certifications" class="section container reveal">
+      <section id="certifications" class="section container reveal" data-section="certifications">
         <div class="section-title-wrap">
           <p class="eyebrow">Parcours</p>
           <h3>Certifications & Formations</h3>
         </div>
-        <div class="timeline">
-          <article class="card timeline-item">
-            <h4>SSIAP 1</h4>
-            <p>Qualification sécurité incendie et assistance à personnes.</p>
-          </article>
-          <article class="card timeline-item">
-            <h4>Cisco Networking Academy - Parcours Réseaux</h4>
-            <p>Bases solides en OSI, TCP/IP, routage et switching.</p>
-          </article>
-          <article class="card timeline-item">
-            <h4>Gestionnaire en maintenance et support informatique (CESI)</h4>
-            <p>Formation Bac+2 orientée support, administration et réseau.</p>
-          </article>
-        </div>
+        <div class="timeline" id="certificationList"></div>
       </section>
 
-      <section id="goal" class="section container reveal">
+      <section id="goal" class="section container reveal" data-section="goal">
         <div class="section-title-wrap">
           <p class="eyebrow">Projection</p>
           <h3>Objectif professionnel</h3>
         </div>
-        <div class="card">
-          <p>
-            Je recherche une alternance en support informatique / helpdesk afin de
-            renforcer mes compétences terrain et évoluer vers un poste de
-            technicien systèmes et réseaux junior.
-          </p>
+        <div class="card magnetic-card">
+          <p id="goalText"></p>
         </div>
       </section>
 
-      <section id="contact" class="section container reveal">
+      <section id="contact" class="section container reveal" data-section="contact">
         <div class="section-title-wrap">
           <p class="eyebrow">Échange</p>
           <h3>Contact</h3>
         </div>
-        <div class="card contact-card">
-          <a href="mailto:alexandre.canovas111@gmail.com">alexandre.canovas111@gmail.com</a>
-          <a href="https://www.linkedin.com/in/alexandre-canovas" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/AlexandreCANOVAS" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
+        <div class="card contact-card" id="contactList"></div>
       </section>
     </main>
 
-    <footer class="site-footer container">
+    <footer class="site-footer container reveal">
       <p>© <span id="year"></span> Alexandre Canovas - Portfolio Alternance IT</p>
     </footer>
 
+    <script src="content.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

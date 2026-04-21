@@ -17,55 +17,22 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="bootScreen" class="boot-screen" aria-hidden="true">
-      <div class="boot-card">
-        <p class="boot-title">INITIALISATION PROFIL IT</p>
-        <pre id="bootLog" class="boot-log"></pre>
-      </div>
-    </div>
-
-    <canvas id="constellationCanvas" class="constellation-canvas" aria-hidden="true"></canvas>
-
-    <div class="bg-aurora" aria-hidden="true">
-      <span class="orb orb-a"></span>
-      <span class="orb orb-b"></span>
-      <span class="orb orb-c"></span>
-    </div>
-    <div class="scanline" aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
-
     <header class="site-header container">
       <a href="#hero" class="brand">AC</a>
       <nav class="main-nav">
         <a href="#about">À propos</a>
+        <a href="#why-me">Pourquoi moi</a>
         <a href="#skills">Compétences</a>
         <a href="#projects">Projets</a>
+        <a href="#it-mode">Mode IT</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button id="editToggle" class="edit-toggle">Editer</button>
         <button id="themeToggle" class="theme-toggle" aria-label="Activer le mode sombre">
           <span>🌙</span>
         </button>
       </div>
     </header>
-
-    <aside id="editorPanel" class="editor-panel" aria-hidden="true">
-      <div class="editor-card">
-        <div class="editor-head">
-          <h3>Edition du contenu</h3>
-          <button id="editorClose" class="editor-close" aria-label="Fermer l'editeur">✕</button>
-        </div>
-        <p class="editor-help">
-          Modifie le JSON puis clique sur <strong>Appliquer</strong>. Le contenu est sauvegarde dans ton navigateur.
-        </p>
-        <textarea id="contentEditor" class="editor-textarea" spellcheck="false"></textarea>
-        <div class="editor-actions">
-          <button id="editorReset" class="btn btn-ghost" type="button">Revenir au contenu par defaut</button>
-          <button id="editorApply" class="btn btn-primary" type="button">Appliquer</button>
-        </div>
-      </div>
-    </aside>
 
     <main class="site-main">
       <section id="hero" class="hero container reveal" data-section="hero">
@@ -94,6 +61,44 @@
         </div>
       </section>
 
+       <section id="it-mode" class="section container reveal" data-section="it-mode">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Simulation</p>
+          <h3>Mode interactif IT</h3>
+        </div>
+        <div class="card terminal-card">
+          <div class="terminal-head">
+            <span class="terminal-dot terminal-dot-red"></span>
+            <span class="terminal-dot terminal-dot-amber"></span>
+            <span class="terminal-dot terminal-dot-green"></span>
+            <p class="terminal-title">terminal@alexandre-it:~</p>
+          </div>
+          <div id="terminalOutput" class="terminal-output" aria-live="polite"></div>
+          <form id="terminalForm" class="terminal-input-row">
+            <span class="terminal-prompt">$</span>
+            <input
+              id="terminalInput"
+              class="terminal-input"
+              type="text"
+              name="terminal-command"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Tape une commande (help)"
+            />
+          </form>
+        </div>
+      </section>
+
+      <section id="goal" class="section container reveal" data-section="goal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Projection</p>
+          <h3>Objectif professionnel</h3>
+        </div>
+        <div class="card magnetic-card">
+          <p id="goalText"></p>
+        </div>
+      </section>
+
       <section id="about" class="section container reveal" data-section="about">
         <div class="section-title-wrap">
           <p class="eyebrow">Profil</p>
@@ -102,6 +107,16 @@
         <div class="card magnetic-card" id="aboutCard">
           <p id="aboutText"></p>
           <ul class="qualities" id="qualitiesList"></ul>
+        </div>
+      </section>
+
+      <section id="why-me" class="section container reveal" data-section="why-me">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Valeur ajoutée</p>
+          <h3>Pourquoi moi ?</h3>
+        </div>
+        <div class="card why-me-card magnetic-card">
+          <p id="whyMeText"></p>
         </div>
       </section>
 
@@ -129,15 +144,8 @@
         <div class="timeline" id="certificationList"></div>
       </section>
 
-      <section id="goal" class="section container reveal" data-section="goal">
-        <div class="section-title-wrap">
-          <p class="eyebrow">Projection</p>
-          <h3>Objectif professionnel</h3>
-        </div>
-        <div class="card magnetic-card">
-          <p id="goalText"></p>
-        </div>
-      </section>
+     
+
 
       <section id="contact" class="section container reveal" data-section="contact">
         <div class="section-title-wrap">

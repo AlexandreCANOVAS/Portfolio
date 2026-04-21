@@ -1,0 +1,17 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2740" />
+      <stop offset="1" stop-color="#143E63" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="20" fill="url(#bg)" />
+  <rect x="24" y="24" width="752" height="402" rx="14" stroke="#7FD4FF" stroke-opacity="0.45" stroke-width="2"/>
+  <circle cx="140" cy="130" r="44" fill="#7FD4FF" fill-opacity="0.2" />
+  <path d="M140 95L149 119H174L154 134L162 159L140 145L118 159L126 134L106 119H131L140 95Z" fill="#7FD4FF"/>
+  <text x="220" y="130" fill="#D8EEFF" font-family="Arial, sans-serif" font-size="42" font-weight="700">Certification</text>
+  <text x="220" y="175" fill="#A9D4EE" font-family="Arial, sans-serif" font-size="24">Ajoute ici l'image de ton attestation</text>
+  <rect x="220" y="220" width="280" height="18" rx="9" fill="#1E5A88"/>
+  <rect x="220" y="250" width="355" height="18" rx="9" fill="#1E5A88"/>
+  <rect x="220" y="280" width="240" height="18" rx="9" fill="#1E5A88"/>
+</svg>

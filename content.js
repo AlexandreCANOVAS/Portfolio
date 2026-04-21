@@ -1,5 +1,5 @@
-// Modifie uniquement ce fichier pour mettre a jour ton portfolio.
-// Tu peux ajouter/supprimer des elements dans les tableaux (skills, projects, certifications, contactLinks, etc.).
+// Modifie uniquement ce fichier pour mettre à jour ton portfolio.
+// Tu peux ajouter/supprimer des éléments dans les tableaux (skills, projects, certifications, contactLinks, etc.).
 
 window.PORTFOLIO_CONTENT = {
   hero: {
@@ -7,38 +7,43 @@ window.PORTFOLIO_CONTENT = {
     name: "Alexandre Canovas",
     title: "Alternance Support Informatique / IT",
     pitch:
-      "Etudiant en informatique (CESI) avec un parcours en securite terrain, oriente support utilisateur, maintenance systemes et assistance helpdesk. Je recherche une alternance pour contribuer rapidement en environnement IT."
+      "Étudiant en informatique (CESI) avec un parcours en sécurité terrain, orienté support utilisateur, maintenance systèmes et assistance helpdesk. Je recherche une alternance pour contribuer rapidement en environnement IT."
   },
+
+  goal:
+    "Je recherche une alternance en support informatique / helpdesk afin de développer mes compétences techniques en environnement professionnel, renforcer mon expérience terrain et évoluer progressivement vers un poste de technicien systèmes et réseaux junior, au sein d’une équipe IT.",
   about: {
     text:
-      "Ancien gendarme puis agent de securite, j'ai developpe rigueur, gestion du stress et sens des responsabilites. En reconversion vers l'informatique, je me specialise en support, depannage systemes et bases reseau.",
+      "Ancien gendarme puis agent de sécurité, j'ai développé rigueur, gestion du stress et sens des responsabilités. En reconversion vers l'informatique, je me spécialise en support, dépannage systèmes et bases réseau.",
     qualities: ["Rigueur", "Discipline", "Logique", "Autonomie", "Sens du service"]
   },
+  whyMe:
+    "Avec un parcours hybride sécurité et informatique, j'apporte une discipline opérationnelle, une forte rigueur et une vraie maîtrise du travail en environnement structuré. Habitué à gérer la pression et les priorités, je veux devenir un technicien systèmes et réseaux fiable, réactif et orienté service utilisateur.",
   skills: [
     {
-      title: "Support & Systemes",
+      title: "Support & Systèmes",
       items: [
         "Support utilisateur niveau 1",
         "Windows : installation, diagnostic, maintenance",
         "Navigation Linux / ligne de commande (bases)",
-        "Resolution d'incidents materiels et logiciels"
+        "Résolution d'incidents matériels et logiciels"
       ]
     },
     {
-      title: "Reseaux (bases)",
+      title: "Réseaux (bases)",
       items: [
-        "Adressage IP et sous-reseaux",
+        "Adressage IP et sous-réseaux",
         "DNS / DHCP",
         "Notions TCP/IP, routage et switching",
-        "Diagnostic reseau de premier niveau"
+        "Diagnostic réseau de premier niveau"
       ]
     },
     {
-      title: "Developpement Web",
+      title: "Développement Web",
       items: [
         "HTML / CSS / JavaScript",
         "Bases Svelte et Laravel",
-        "Creation d'interfaces responsives",
+        "Création d'interfaces responsives",
         "Structure de mini-applications web"
       ]
     },
@@ -53,44 +58,76 @@ window.PORTFOLIO_CONTENT = {
   ],
   projects: [
     {
-      title: "Bot Discord - Automatisation",
-      description:
-        "Developpement d'un bot pour automatiser des commandes, organiser des interactions utilisateurs et renforcer la logique evenementielle.",
-      technologies: ["JavaScript", "Node.js", "Discord API"],
-      github: "https://github.com/AlexandreCANOVAS"
-    },
-    {
-      title: "Mini application web",
-      description:
-        "Creation d'une application web responsive avec formulaire, validation cote client et structure claire pour la maintenance.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/AlexandreCANOVAS"
-    },
-    {
       title: "Atelier maintenance PC",
       description:
-        "Projet personnel de montage/demontage et diagnostic de pannes pour renforcer les reflexes support materiel.",
-      technologies: ["Diagnostic materiel", "Windows", "Documentation"],
-      github: "https://github.com/AlexandreCANOVAS"
-    }
+        "Projet personnel de montage/démontage et diagnostic de pannes pour renforcer les réflexes support matériel.",
+      technologies: ["Diagnostic matériel", "Windows", "Documentation"],
+      image: "assets/projects/IMG_4436.jpeg"
+    },
+    {
+      title: "Bot Discord - Automatisation",
+      description:
+        "Développement d'un bot pour automatiser des commandes, organiser des interactions utilisateurs et renforcer la logique événementielle.",
+      technologies: ["JavaScript", "Node.js", "Discord API"],
+      image: "assets/projects/Capture d’écran 2026-02-19 164153.png",
+      github: "https://github.com/AlexandreCANOVAS/BOT-WOLF-V2-RDR"
+    },
+    {
+      title: "Application web FiveM",
+      description:
+        "Développement d’un projet lié à l’environnement FiveM, incluant la création et la gestion de scripts ou fonctionnalités serveur afin d’améliorer l’expérience utilisateur et l’interaction en jeu.",
+      technologies: ["HTML", "CSS", "TypeScripts", "MongoDB", "MySQL"],
+      image: "assets/projects/Capture d’écran 2026-02-23 025057.png",
+      github: "https://github.com/AlexandreCANOVAS/SITE-BOT-RP"
+    },
+    {
+      title: "Site web gestion de planning",
+      description:
+        "Gestion et création de planning, calcul automatique des heures, fiches employés, etc.",
+      technologies: ["JavaScript", "CSS", "Blade", "PHP","MySQL"],
+      image: "assets/projects/project-placeholder.svg",
+      github: "https://github.com/AlexandreCANOVAS/planning-app"
+    },
+    
   ],
   certifications: [
+
     {
-      title: "SSIAP 1",
-      description: "Qualification securite incendie et assistance a personnes."
+      title: "Gestionnaire en maintenance et support informatique CESI (en cours)",
+      description: "Formation Bac+2 orientée support, administration et réseau.",
+      image: "",
+      pdf: ""
+    },
+
+     {
+      title: "Cisco Networking Academy - Notions de base du matériel informatique",
+      description: "Apprendre les bases du matériel informatique et découvrir les composants des PC, des ordinateurs portables et des terminaux mobiles",
+      image: "assets/certifications/Computer_Hardware_Basics_certificate_alexandre-canovas111-gmail-com_05d8107f-70da-4a8b-96e9-e75f55ee0222.pdf",
+      pdf: "assets/certifications/Computer_Hardware_Basics_certificate_alexandre-canovas111-gmail-com_05d8107f-70da-4a8b-96e9-e75f55ee0222.pdf"
     },
     {
-      title: "Cisco Networking Academy - Parcours Reseaux",
-      description: "Bases solides en OSI, TCP/IP, routage et switching."
+      title: "Certificat de réussite HTML & CSS",
+      description: "Base de programmation HTML & CSS",
+      image: "assets/certifications/assets/certifications/4f0b79b2-0f15-41dd-ac16-49e231839e14.pdf",
+      pdf: "assets/certifications/4f0b79b2-0f15-41dd-ac16-49e231839e14.pdf"
     },
+
     {
-      title: "Gestionnaire en maintenance et support informatique (CESI)",
-      description: "Formation Bac+2 orientee support, administration et reseau."
-    }
+      title: "BAC STI2D option systèmes d'information et numérique",
+      description: "",
+      image: "assets/certifications/Attestation.pdf",
+      pdf: "assets/certifications/Attestation.pdf"
+    },
+   
+    
   ],
-  goal:
-    "Je recherche une alternance en support informatique / helpdesk afin de renforcer mes competences terrain et evoluer vers un poste de technicien systemes et reseaux junior.",
+  
   contactLinks: [
+    {
+      label: "Téléphone",
+      text: "07 81 35 47 12",
+      href: "tel:0612345678"
+    },
     {
       label: "Email",
       text: "alexandre.canovas111@gmail.com",

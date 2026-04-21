@@ -1,172 +1,5 @@
-const STORAGE_KEY = "portfolio-content";
-const defaultContent = window.PORTFOLIO_CONTENT || {};
-let content = loadContent();
-let constellationState = null;
-
-function cloneData(value) {
-  return JSON.parse(JSON.stringify(value));
-}
-
-function startBootSequence() {
-  const bootScreen = document.getElementById("bootScreen");
-  const bootLog = document.getElementById("bootLog");
-
-  if (!bootScreen || !bootLog) {
-    return Promise.resolve();
-  }
-
-  const lines = [
-    "> Chargement du profil candidat...",
-    "> Initialisation modules: support, reseau, maintenance...",
-    "> Verification des sections portfolio...",
-    "> Synchronisation projets et competences...",
-    "> Systeme pret. Bienvenue recruteur IT."
-  ];
-
-  document.body.classList.add("preboot");
-  bootScreen.classList.add("active");
-  bootLog.textContent = "";
-
-  return new Promise((resolve) => {
-    let index = 0;
-    const timer = setInterval(() => {
-      bootLog.textContent += `${lines[index]}\n`;
-      bootLog.scrollTop = bootLog.scrollHeight;
-      index += 1;
-
-      if (index >= lines.length) {
-        clearInterval(timer);
-        setTimeout(() => {
-          bootScreen.classList.add("done");
-          document.body.classList.remove("preboot");
-          setTimeout(resolve, 380);
-        }, 360);
-      }
-    }, 260);
-  });
-}
-
-function initConstellation() {
-  const canvas = document.getElementById("constellationCanvas");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
-
-  const sectionIds = ["hero", "about", "skills", "projects", "certifications", "goal", "contact"];
-
-  constellationState = {
-    canvas,
-    ctx,
-    sectionIds,
-    mouseX: window.innerWidth * 0.5,
-    mouseY: window.innerHeight * 0.25,
-    time: 0,
-    rafId: null
-  };
-
-  const resize = () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  };
-
-  const draw = () => {
-    if (!constellationState) return;
-
-    const { canvas: c, ctx: context, sectionIds: ids } = constellationState;
-    constellationState.time += 0.015;
-    context.clearRect(0, 0, c.width, c.height);
-
-    const points = ids
-      .map((id, index) => {
-        const section = document.getElementById(id);
-        if (!section) return null;
-
-        const rect = section.getBoundingClientRect();
-        const yCenter = rect.top + Math.min(110, rect.height * 0.45);
-        const floatOffset = Math.sin(constellationState.time + index) * 6;
-
-        return {
-          x: rect.left + rect.width * 0.5,
-          y: yCenter + floatOffset,
-          active: rect.bottom > -80 && rect.top < window.innerHeight + 80
-        };
-      })
-      .filter(Boolean);
-
-    context.lineWidth = 1;
-
-    for (let i = 0; i < points.length - 1; i += 1) {
-      const from = points[i];
-      const to = points[i + 1];
-      if (!from.active && !to.active) continue;
-
-      const alpha = 0.1 + (Math.sin(constellationState.time * 1.6 + i) + 1) * 0.08;
-      context.strokeStyle = `rgba(112, 210, 255, ${alpha.toFixed(3)})`;
-      context.beginPath();
-      context.moveTo(from.x, from.y);
-      context.lineTo(to.x, to.y);
-      context.stroke();
-    }
-
-    points.forEach((point, index) => {
-      if (!point.active) return;
-
-      const pulse = 2.2 + (Math.sin(constellationState.time * 2.4 + index) + 1) * 1.2;
-      context.fillStyle = "rgba(128, 222, 255, 0.9)";
-      context.beginPath();
-      context.arc(point.x, point.y, pulse, 0, Math.PI * 2);
-      context.fill();
-
-      const dist = Math.hypot(point.x - constellationState.mouseX, point.y - constellationState.mouseY);
-      if (dist < 170) {
-        context.strokeStyle = "rgba(88, 214, 255, 0.28)";
-        context.beginPath();
-        context.moveTo(point.x, point.y);
-        context.lineTo(constellationState.mouseX, constellationState.mouseY);
-        context.stroke();
-      }
-    });
-
-    constellationState.rafId = requestAnimationFrame(draw);
-  };
-
-  resize();
-  draw();
-
-  window.addEventListener("resize", resize);
-  window.addEventListener("mousemove", (event) => {
-    if (!constellationState) return;
-    constellationState.mouseX = event.clientX;
-    constellationState.mouseY = event.clientY;
-  });
-  window.addEventListener("scroll", () => {
-    if (constellationState && !constellationState.rafId) {
-      constellationState.rafId = requestAnimationFrame(() => {
-        constellationState.rafId = null;
-      });
-    }
-  });
-}
-
-function loadContent() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-
-  if (!saved) {
-    return cloneData(defaultContent);
-  }
-
-  try {
-    const parsed = JSON.parse(saved);
-    if (parsed && typeof parsed === "object") {
-      return parsed;
-    }
-  } catch (error) {
-    console.error("Contenu local invalide, retour au contenu par defaut.", error);
-  }
-
-  return cloneData(defaultContent);
-}
+let content = window.PORTFOLIO_CONTENT || {};
+let projectImageLightboxState = null;
 
 function injectText(id, value) {
   const node = document.getElementById(id);
@@ -200,9 +33,34 @@ function injectAbout() {
   });
 }
 
+function injectWhyMe() {
+  injectText("whyMeText", content?.whyMe || "");
+}
+
+function initThemeToggle() {
+  const button = document.getElementById("themeToggle");
+  if (!button) return;
+
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  const isDark = savedTheme === "dark";
+
+  document.body.classList.toggle("dark", isDark);
+  button.setAttribute("aria-label", isDark ? "Activer le mode clair" : "Activer le mode sombre");
+  button.innerHTML = isDark ? "<span>☀️</span>" : "<span>🌙</span>";
+
+  button.addEventListener("click", () => {
+    const nowDark = !document.body.classList.contains("dark");
+    document.body.classList.toggle("dark", nowDark);
+    localStorage.setItem("portfolio-theme", nowDark ? "dark" : "light");
+    button.setAttribute("aria-label", nowDark ? "Activer le mode clair" : "Activer le mode sombre");
+    button.innerHTML = nowDark ? "<span>☀️</span>" : "<span>🌙</span>";
+  });
+}
+
 function renderAll() {
   injectHero();
   injectAbout();
+  injectWhyMe();
   renderSkills();
   renderProjects();
   renderCertifications();
@@ -213,69 +71,234 @@ function renderAll() {
   initMagneticCards();
 }
 
-function setEditorState(isOpen) {
-  const panel = document.getElementById("editorPanel");
-  if (!panel) return;
+function initInteractiveTerminal() {
+  const output = document.getElementById("terminalOutput");
+  const form = document.getElementById("terminalForm");
+  const input = document.getElementById("terminalInput");
 
-  panel.classList.toggle("open", isOpen);
-  panel.setAttribute("aria-hidden", String(!isOpen));
-}
+  if (!output || !form || !input) return;
+  if (form.dataset.terminalBound === "true") return;
+  form.dataset.terminalBound = "true";
 
-function syncEditorValue() {
-  const textarea = document.getElementById("contentEditor");
-  if (!textarea) return;
+  const appendLine = (text, className = "") => {
+    const line = document.createElement("p");
+    line.className = `terminal-line ${className}`.trim();
+    line.textContent = text;
+    output.appendChild(line);
+    output.scrollTop = output.scrollHeight;
+  };
 
-  textarea.value = JSON.stringify(content, null, 2);
-}
+  const typeLine = (text) => {
+    const line = document.createElement("p");
+    line.className = "terminal-line terminal-line-response";
+    output.appendChild(line);
 
-function initEditorPanel() {
-  const toggle = document.getElementById("editToggle");
-  const panel = document.getElementById("editorPanel");
-  const close = document.getElementById("editorClose");
-  const apply = document.getElementById("editorApply");
-  const reset = document.getElementById("editorReset");
-  const textarea = document.getElementById("contentEditor");
+    return new Promise((resolve) => {
+      let index = 0;
+      const timer = setInterval(() => {
+        line.textContent = text.slice(0, index + 1);
+        output.scrollTop = output.scrollHeight;
+        index += 1;
 
-  if (!toggle || !panel || !close || !apply || !reset || !textarea) return;
+        if (index >= text.length) {
+          clearInterval(timer);
+          resolve();
+        }
+      }, 9);
+    });
+  };
 
-  toggle.addEventListener("click", () => {
-    syncEditorValue();
-    setEditorState(true);
+  const buildSkillLines = () => {
+    const skills = content.skills || [];
+    if (!skills.length) return ["Aucune compétence renseignée."];
+
+    return skills.flatMap((skill) => {
+      const items = (skill.items || []).map((item) => `  - ${item}`);
+      return [`${skill.title || "Compétence"} :`, ...items];
+    });
+  };
+
+  const buildProjectLines = () => {
+    const projects = content.projects || [];
+    if (!projects.length) return ["Aucun projet renseigné."];
+
+    return projects.flatMap((project) => {
+      const technologies = (project.technologies || []).join(", ");
+      const github = project.github ? `  GitHub: ${project.github}` : "  GitHub: non renseigné";
+      return [
+        `${project.title || "Projet"}`,
+        `  Tech: ${technologies || "non renseignées"}`,
+        github
+      ];
+    });
+  };
+
+  const buildCertificationLines = () => {
+    const certifications = content.certifications || [];
+    if (!certifications.length) return ["Aucune certification renseignée."];
+
+    return certifications.map((certification) => `- ${certification.title || "Certification"}`);
+  };
+
+  const buildContactLines = () => {
+    const links = content.contactLinks || [];
+    if (!links.length) return ["Aucun contact renseigné."];
+
+    return links.map((link) => `${link.label || "Contact"}: ${link.text || link.href || "-"}`);
+  };
+
+  const getCommands = () => ({
+    help: [
+      "Commandes disponibles :",
+      "whoami | skills | projects | certifications | contact | goal | clear | help"
+    ],
+    whoami: [
+      "Alexandre - futur technicien systèmes et réseaux",
+      "Profil hybride sécurité + informatique, orienté support et réseau."
+    ],
+    skills: buildSkillLines(),
+    projects: buildProjectLines(),
+    certifications: buildCertificationLines(),
+    contact: buildContactLines(),
+    goal: [content.goal || "Objectif non renseigné."],
+    clear: []
   });
 
-  close.addEventListener("click", () => {
-    setEditorState(false);
+  let busy = false;
+  const history = [];
+  let historyIndex = 0;
+
+  const runCommand = async (rawCommand) => {
+    const command = rawCommand.trim().toLowerCase();
+    appendLine(`$ ${rawCommand}`, "terminal-line-command");
+
+    if (!command) {
+      await typeLine("Tape help pour afficher les commandes disponibles.");
+      return;
+    }
+
+    const commands = getCommands();
+    if (command === "clear") {
+      output.innerHTML = "";
+      return;
+    }
+
+    const lines = commands[command] || ["Commande inconnue. Tape help pour voir les commandes."];
+
+    for (const line of lines) {
+      await typeLine(line);
+    }
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (busy) return;
+
+    const value = input.value;
+    input.value = "";
+    history.push(value);
+    historyIndex = history.length;
+    busy = true;
+    input.setAttribute("disabled", "true");
+
+    await runCommand(value);
+
+    input.removeAttribute("disabled");
+    input.focus();
+    busy = false;
   });
 
-  panel.addEventListener("click", (event) => {
-    if (event.target === panel) {
-      setEditorState(false);
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (!history.length) return;
+      historyIndex = Math.max(0, historyIndex - 1);
+      input.value = history[historyIndex] || "";
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (!history.length) return;
+      historyIndex = Math.min(history.length, historyIndex + 1);
+      input.value = history[historyIndex] || "";
     }
   });
 
-  apply.addEventListener("click", () => {
-    try {
-      const parsed = JSON.parse(textarea.value);
-      if (!parsed || typeof parsed !== "object") {
-        alert("Le JSON doit representer un objet.");
-        return;
-      }
+  appendLine("Mode interactif IT initialisé.", "terminal-line-system");
+  appendLine("Tape help pour afficher toutes les commandes.", "terminal-line-system");
+}
 
-      content = parsed;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
-      renderAll();
-      setEditorState(false);
-    } catch (error) {
-      alert("JSON invalide. Verifie la syntaxe avant d'appliquer.");
-      console.error(error);
+function ensureProjectImageLightbox() {
+  if (projectImageLightboxState) return projectImageLightboxState;
+
+  const root = document.createElement("div");
+  root.className = "project-image-lightbox";
+  root.setAttribute("aria-hidden", "true");
+
+  root.innerHTML = `
+    <div class="project-image-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Agrandissement image projet">
+      <button class="project-image-lightbox-close" type="button" aria-label="Fermer" data-lightbox-close>×</button>
+      <img class="project-image-lightbox-image" src="" alt="" />
+      <p class="project-image-lightbox-caption"></p>
+    </div>
+  `;
+
+  document.body.appendChild(root);
+
+  const image = root.querySelector(".project-image-lightbox-image");
+  const caption = root.querySelector(".project-image-lightbox-caption");
+
+  root.addEventListener("click", (event) => {
+    if (event.target === root || event.target.closest("[data-lightbox-close]")) {
+      closeProjectImageLightbox();
     }
   });
 
-  reset.addEventListener("click", () => {
-    content = cloneData(defaultContent);
-    localStorage.removeItem(STORAGE_KEY);
-    renderAll();
-    syncEditorValue();
+  projectImageLightboxState = { root, image, caption };
+  return projectImageLightboxState;
+}
+
+function openProjectImageLightbox(src, alt) {
+  const lightbox = ensureProjectImageLightbox();
+  if (!src) return;
+
+  lightbox.image.src = src;
+  lightbox.image.alt = alt || "Projet";
+  lightbox.caption.textContent = alt || "Aperçu projet";
+  lightbox.root.classList.add("active");
+  lightbox.root.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+}
+
+function closeProjectImageLightbox() {
+  if (!projectImageLightboxState) return;
+
+  projectImageLightboxState.root.classList.remove("active");
+  projectImageLightboxState.root.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+}
+
+function initProjectImageZoom() {
+  if (document.body.dataset.projectImageZoomBound === "true") return;
+  document.body.dataset.projectImageZoomBound = "true";
+
+  ensureProjectImageLightbox();
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".project-image-bubble");
+    if (!trigger) return;
+
+    const wrap = trigger.closest(".project-image-wrap");
+    const image = wrap?.querySelector(".project-image");
+    if (!image) return;
+
+    openProjectImageLightbox(image.currentSrc || image.src, image.alt);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeProjectImageLightbox();
+    }
   });
 }
 
@@ -307,12 +330,17 @@ function createProjectCard(project) {
   const article = document.createElement("article");
   article.className = "card project-card magnetic-card reveal";
 
+  const imageBlock = project.image
+    ? `<div class="project-image-wrap"><img class="project-image" src="${project.image}" alt="${project.title || "Projet"}" loading="lazy" /><button class="project-image-bubble" type="button" aria-label="Agrandir l'image du projet">Agrandir</button></div>`
+    : "";
+
   const techList = (project.technologies || []).map((item) => `<li>${item}</li>`).join("");
   const githubLink = project.github
     ? `<a href="${project.github}" target="_blank" rel="noreferrer">Voir sur GitHub</a>`
     : "";
 
   article.innerHTML = `
+    ${imageBlock}
     <h4>${project.title || ""}</h4>
     <p>${project.description || ""}</p>
     <ul>${techList}</ul>
@@ -336,9 +364,23 @@ function createCertificationCard(certification) {
   const article = document.createElement("article");
   article.className = "card timeline-item magnetic-card reveal";
 
+  const imagePath = certification.image || "";
+  const isImagePdf = /\.pdf(\?|$)/i.test(imagePath);
+  const pdfPath = certification.pdf || (isImagePdf ? imagePath : "");
+
+  const imageBlock = imagePath && !isImagePdf
+    ? `<div class="cert-image-wrap"><img class="cert-image" src="${imagePath}" alt="${certification.title || "Certification"}" loading="lazy" /></div>`
+    : "";
+
+  const pdfBlock = pdfPath
+    ? `<a class="cert-pdf-link" href="${pdfPath}" target="_blank" rel="noreferrer">Voir le certificat (PDF)</a>`
+    : "";
+
   article.innerHTML = `
+    ${imageBlock}
     <h4>${certification.title || ""}</h4>
     <p>${certification.description || ""}</p>
+    ${pdfBlock}
   `;
 
   return article;
@@ -417,24 +459,6 @@ function initMagneticCards() {
   });
 }
 
-function initThemeToggle() {
-  const button = document.getElementById("themeToggle");
-  if (!button) return;
-
-  const savedTheme = localStorage.getItem("portfolio-theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    button.innerHTML = "<span>☀️</span>";
-  }
-
-  button.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-    button.innerHTML = isDark ? "<span>☀️</span>" : "<span>🌙</span>";
-  });
-}
-
 function initRevealOnScroll() {
   const revealTargets = document.querySelectorAll(".reveal:not(.revealed)");
   if (!revealTargets.length) return;
@@ -470,8 +494,7 @@ function setCurrentYear() {
 }
 
 renderAll();
-initEditorPanel();
+initProjectImageZoom();
+initInteractiveTerminal();
 initThemeToggle();
-initConstellation();
 setCurrentYear();
-startBootSequence();

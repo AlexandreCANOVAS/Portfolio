@@ -362,14 +362,30 @@ function createProjectCard(project) {
   const techList = (project.technologies || []).map((item) => `<span class="project-tech-tag">${item}</span>`).join("");
   const techBlock = techList ? `<div class="project-tech-list">${techList}</div>` : "";
 
+  const descriptionText = project.description || "";
+  const descriptionParts = descriptionText.split(/Impact:\s*/i);
+  const summaryMain = (descriptionParts[0] || "").trim();
+  const summaryImpact = descriptionParts.length > 1
+    ? descriptionParts.slice(1).join(" Impact: ").trim()
+    : "";
+
+  const summaryBlock = descriptionText
+    ? `
+      <p class="project-summary">
+        ${summaryMain ? `<span class="project-summary-main">${summaryMain}</span>` : ""}
+        ${summaryImpact ? `<span class="project-summary-impact"><strong>Impact</strong> ${summaryImpact}</span>` : ""}
+      </p>
+    `
+    : "";
+
   const githubLink = project.github
     ? `<a href="${project.github}" target="_blank" rel="noreferrer">Voir sur GitHub</a>`
     : "";
 
   article.innerHTML = `
-    ${imageBlock}
     <h4>${project.title || ""}</h4>
-    ${project.description ? `<p class="project-summary">${project.description}</p>` : ""}
+    ${imageBlock}
+    ${summaryBlock}
     ${detailsBlock}
     ${techBlock}
     ${githubLink}

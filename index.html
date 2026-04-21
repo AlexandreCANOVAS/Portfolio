@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio d'Alexandre Canovas - recherche d'alternance en support informatique et systèmes & réseaux."
+    />
+    <title>Alexandre Canovas | Alternance Support Informatique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="site-header container">
+      <a href="#hero" class="brand">AC</a>
+      <nav class="main-nav">
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Activer le mode sombre">
+        <span>🌙</span>
+      </button>
+    </header>
+
+    <main>
+      <section id="hero" class="hero container reveal">
+        <p class="eyebrow">Portfolio Alternance IT</p>
+        <h1>Alexandre Canovas</h1>
+        <h2>Alternance Support Informatique / IT</h2>
+        <p class="hero-text">
+          Étudiant en informatique (CESI) avec un parcours en sécurité terrain,
+          orienté support utilisateur, maintenance systèmes et assistance helpdesk.
+          Je recherche une alternance pour contribuer rapidement en environnement IT.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        </div>
+      </section>
+
+      <section id="about" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Profil</p>
+          <h3>À propos</h3>
+        </div>
+        <div class="card">
+          <p>
+            Ancien gendarme puis agent de sécurité, j'ai développé rigueur,
+            gestion du stress et sens des responsabilités. En reconversion vers
+            l'informatique, je me spécialise en support, dépannage systèmes et bases réseau.
+          </p>
+          <ul class="qualities">
+            <li>Rigueur</li>
+            <li>Discipline</li>
+            <li>Logique</li>
+            <li>Autonomie</li>
+            <li>Sens du service</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="skills" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Savoir-faire</p>
+          <h3>Compétences techniques</h3>
+        </div>
+        <div class="skills-grid">
+          <article class="card skill-card">
+            <h4>Support & Systèmes</h4>
+            <ul>
+              <li>Support utilisateur niveau 1</li>
+              <li>Windows : installation, diagnostic, maintenance</li>
+              <li>Navigation Linux / ligne de commande (bases)</li>
+              <li>Résolution d'incidents matériels et logiciels</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h4>Réseaux (bases)</h4>
+            <ul>
+              <li>Adressage IP et sous-réseaux</li>
+              <li>DNS / DHCP</li>
+              <li>Notions TCP/IP, routage et switching</li>
+              <li>Diagnostic réseau de premier niveau</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h4>Développement Web</h4>
+            <ul>
+              <li>HTML / CSS / JavaScript</li>
+              <li>Bases Svelte et Laravel</li>
+              <li>Création d'interfaces responsives</li>
+              <li>Structure de mini-applications web</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h4>Outils</h4>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>PowerShell (commandes essentielles)</li>
+              <li>Organisation et documentation technique</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Réalisations</p>
+          <h3>Projets</h3>
+        </div>
+        <div id="projectList" class="projects-grid"></div>
+      </section>
+
+      <section id="certifications" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Parcours</p>
+          <h3>Certifications & Formations</h3>
+        </div>
+        <div class="timeline">
+          <article class="card timeline-item">
+            <h4>SSIAP 1</h4>
+            <p>Qualification sécurité incendie et assistance à personnes.</p>
+          </article>
+          <article class="card timeline-item">
+            <h4>Cisco Networking Academy - Parcours Réseaux</h4>
+            <p>Bases solides en OSI, TCP/IP, routage et switching.</p>
+          </article>
+          <article class="card timeline-item">
+            <h4>Gestionnaire en maintenance et support informatique (CESI)</h4>
+            <p>Formation Bac+2 orientée support, administration et réseau.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="goal" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Projection</p>
+          <h3>Objectif professionnel</h3>
+        </div>
+        <div class="card">
+          <p>
+            Je recherche une alternance en support informatique / helpdesk afin de
+            renforcer mes compétences terrain et évoluer vers un poste de
+            technicien systèmes et réseaux junior.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section container reveal">
+        <div class="section-title-wrap">
+          <p class="eyebrow">Échange</p>
+          <h3>Contact</h3>
+        </div>
+        <div class="card contact-card">
+          <a href="mailto:alexandre.canovas111@gmail.com">alexandre.canovas111@gmail.com</a>
+          <a href="https://www.linkedin.com/in/alexandre-canovas" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/AlexandreCANOVAS" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <p>© <span id="year"></span> Alexandre Canovas - Portfolio Alternance IT</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

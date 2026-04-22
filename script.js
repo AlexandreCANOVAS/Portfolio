@@ -332,12 +332,15 @@ function renderSkills() {
   });
 }
 
-function createProjectCard(project) {
+function createProjectCard(project, index = 0) {
   const article = document.createElement("article");
   article.className = "card project-card magnetic-card reveal";
 
+  const imageLoading = index < 3 ? "eager" : "lazy";
+  const imageFetchPriority = index === 0 ? "high" : "auto";
+
   const imageBlock = project.image
-    ? `<div class="project-image-wrap"><img class="project-image" src="${project.image}" alt="${project.title || "Projet"}" loading="lazy" /><button class="project-image-bubble" type="button" aria-label="Agrandir l'image du projet">Agrandir</button></div>`
+    ? `<div class="project-image-wrap"><img class="project-image" src="${project.image}" alt="${project.title || "Projet"}" loading="${imageLoading}" fetchpriority="${imageFetchPriority}" decoding="async" /><button class="project-image-bubble" type="button" aria-label="Agrandir l'image du projet">Agrandir</button></div>`
     : "";
 
   const details = [
@@ -399,8 +402,8 @@ function renderProjects() {
   if (!container || !Array.isArray(content?.projects)) return;
 
   container.innerHTML = "";
-  content.projects.forEach((project) => {
-    container.appendChild(createProjectCard(project));
+  content.projects.forEach((project, index) => {
+    container.appendChild(createProjectCard(project, index));
   });
 }
 
@@ -470,9 +473,14 @@ function renderContact() {
 
 function applyStaggerReveal() {
   const revealTargets = document.querySelectorAll(".reveal");
+  let globalIndex = 0;
+  let projectIndex = 0;
 
-  revealTargets.forEach((element, index) => {
-    const delay = Math.min(index * 70, 560);
+  revealTargets.forEach((element) => {
+    const isProjectCard = element.classList.contains("project-card");
+    const delay = isProjectCard
+      ? Math.min(projectIndex++ * 24, 140)
+      : Math.min(globalIndex++ * 32, 220);
     element.style.setProperty("--reveal-delay", `${delay}ms`);
   });
 }
@@ -524,7 +532,10 @@ function initRevealOnScroll() {
         }
       });
     },
-    { threshold: 0.15 }
+    {
+      threshold: 0.02,
+      rootMargin: "0px 0px -8% 0px"
+    }
   );
 
   revealTargets.forEach((element) => observer.observe(element));

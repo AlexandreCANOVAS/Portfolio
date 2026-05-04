@@ -118,6 +118,13 @@ window.PORTFOLIO_CONTENT = {
       pdf: ""
     },
 
+    {
+      title: "Cisco Networking Academy - Notions de base sur les réseaux",
+      description: "Apprendre les bases des réseaux informatiques et découvrir le fonctionnement des réseaux.",
+      image: "assets/certifications/Networking_Basics_certificate_alexandre-canovas111-gmail-com_c275acc8-9409-4b66-b73a-1eecf2515a22.pdf",
+      pdf: "assets/certifications/Networking_Basics_certificate_alexandre-canovas111-gmail-com_c275acc8-9409-4b66-b73a-1eecf2515a22.pdf"
+    },
+
      {
       title: "Cisco Networking Academy - Notions de base du matériel informatique",
       description: "Apprendre les bases du matériel informatique et découvrir les composants des PC, des ordinateurs portables et des terminaux mobiles",

@@ -60,6 +60,16 @@ window.PORTFOLIO_CONTENT = {
   ],
   projects: [
     {
+      title: "Réseau Multi-VLAN Cisco Packet Tracer",
+      description: "Conception et mise en œuvre d'un réseau d'entreprise multi‑VLAN avec services centralisés (DHCP, DNS, HTTP) sous Cisco Packet Tracer. Impact: maîtrise de la segmentation réseau, des services centralisés et du dépannage Cisco IOS. Ce projet démontre une capacité à configurer une infrastructure réseau complète et à résoudre des incidents concrets (DHCP, routage inter‑VLAN).",
+      problem: "Besoin de segmenter un réseau d'entreprise en plusieurs VLANs pour isoler les flux de chaque service (Admin, IT, Guests, Management) tout en centralisant les services réseau et en assurant le routage inter‑VLAN.",
+      solution: "Création d'une architecture multi‑VLAN avec router‑on‑a‑stick sur routeur Cisco, configuration d'un switch en CLI (VLANs, trunk, ports access), déploiement de services DHCP/DNS/HTTP centralisés, et mise en place d'un premier niveau de sécurité avec ACL sur le VLAN Guests.",
+      skillsDeveloped: "Configuration Cisco IOS (switch/routeur), routage inter‑VLAN (router‑on‑a‑stick), services réseau (DHCP, DNS, HTTP), plan d'adressage IP, dépannage réseau et diagnostic, documentation technique structurée.",
+      technologies: ["Cisco Packet Tracer", "Cisco IOS", "VLANs 802.1Q", "Router-on-a-stick", "DHCP", "DNS", "HTTP", "ACL"],
+      github: "https://alexandrecanovas.github.io/Cahier-des-charges-projet-IT/",
+      image: "assets/projects/plan réseau.png"
+    },
+    {
       title: "Atelier maintenance PC",
       description: "Projet pratique de maintenance poste client. Impact: amélioration de ma rapidité de diagnostic et de ma méthode d'intervention sur incidents matériels courants. Ce projet m'a permis de structurer une démarche de diagnostic directement utile sur des missions support IT.",
       problem: "Renforcer les réflexes techniques sur le diagnostic de pannes matérielles en environnement poste utilisateur.",
